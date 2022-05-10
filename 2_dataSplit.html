@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2021a"><title>Untitled</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 18px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 36px; font-weight: 700; text-align: left;  }
+.CodeBlock { background-color: #F7F7F7; margin: 10px 0 10px 0;}
+.S1 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 0px none rgb(0, 0, 0); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 44.316px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px;  }
+.S2 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 0px none rgb(0, 0, 0); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 44.316px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px;  }
+.S3 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 44.316px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px;  }
+.S4 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 54px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 36px; font-weight: 400; text-align: left;  }</style></head><body><div class = rtcContent><h4  class = 'S0'><span>Aggregate columns from datFile</span></h4><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span >timeStamp = ones(2048,519); </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >motorTorque = ones(2048,519);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >lagError_cuttingPC = ones(2048,519);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >actualPosition_cuttingPC = ones(2048,519);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >actualSpeed_cuttingPC = ones(2048,519);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >actualPosition_filmPC = ones(2048,519);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >actualSpeed_filmPC = ones(2048,519);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >lagError_filmPC = ones(2048,519);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >pSpintor_vaxSpeed = ones(2048,519);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">for </span><span >i = 1: 519</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    timeStamp(:,i) = datFile(i).data(:,1);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    motorTorque(:,i) = datFile(i).data(:,2);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    lagError_cuttingPC(:,i) = datFile(i).data(:,3);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    actualPosition_cuttingPC(:,i) = datFile(i).data(:,4);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    actualSpeed_cuttingPC(:,i) = datFile(i).data(:,5);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    actualPosition_filmPC(:,i) = datFile(i).data(:,6);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    actualSpeed_filmPC(:,i) = datFile(i).data(:,7);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    lagError_filmPC(:,i) = datFile(i).data(:,8);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    pSpintor_vaxSpeed(:,i) = datFile(i).data(:,9);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div><h4  class = 'S0'><span>Extract selected feature (Mean for each columns except timeStamp) </span></h4><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">for </span><span >i = 1:519</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >   Mean_torq(:,i) = mean(motorTorque(:,i));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >   Mean_lagE_cutting(:,i)= mean(lagError_cuttingPC(:,i));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >   Mean_postion_cutting(:,i) = mean(actualPosition_cuttingPC(:,i));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >   Mean_speed_cutting(:,i) = mean(actualSpeed_cuttingPC(:,i));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >   Mean_postion_film(:,i) = mean(actualPosition_filmPC(:,i));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >   Mean_speed_film(:,i) = mean(actualSpeed_filmPC(:,i));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >   Mean_lagE_film(:,i) = mean(lagError_filmPC(:,i));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >   Mean_vaxSpeed(:,i) = mean(pSpintor_vaxSpeed(:,i));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end </span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >Mean = [Mean_torq; Mean_lagE_cutting; Mean_postion_cutting; Mean_speed_cutting; Mean_postion_film; Mean_speed_film; Mean_lagE_film; Mean_vaxSpeed;]';</span></span></div></div></div><h4  class = 'S0'><span>Using random indices, split Mean datasets into training, validation, and test sets</span></h4><div  class = 'S4'><span>Chosen percentage of split is Train 70%, Validation 15%, Test 15%</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span style="color: rgb(2, 128, 9);">% Feature/Predictors Extraction </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >rng(0);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >NSet = 519;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >randomIdx = randperm(NSet); </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >NTrain = round(NSet*0.7); </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >NTest = NSet-NTrain; </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >trainIdx = randomIdx(1:NTrain); </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >testIdx = randomIdx(NTrain+1: NTrain+NTest); </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >datFileTrain = Mean(trainIdx,:); </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >datFileValTest = Mean(testIdx,:); </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >datFileVal = datFileValTest((1:78),:);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >datFileTest = datFileValTest((79:end),:);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(2, 128, 9);">% Label/Target Extractions (Months)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >months_all = [];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">for </span><span >i = 1:519</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    current_month = datFile(i).nMM;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    months_all = [months_all; current_month];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >TrainMM = months_all(trainIdx)</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >ValTestMM = months_all(testIdx);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >ValMM = ValTestMM(1:78,1);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >TestMM = ValTestMM((79:end),1); </span></span></div></div></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span >datFileTrainVal = [datFileTrain; datFileVal];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >TrainValMM= [TrainMM; ValMM];</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+% Aggregate columns from datFile
+
+timeStamp = ones(2048,519); 
+motorTorque = ones(2048,519);
+lagError_cuttingPC = ones(2048,519);
+actualPosition_cuttingPC = ones(2048,519);
+actualSpeed_cuttingPC = ones(2048,519);
+actualPosition_filmPC = ones(2048,519);
+actualSpeed_filmPC = ones(2048,519);
+lagError_filmPC = ones(2048,519);
+pSpintor_vaxSpeed = ones(2048,519);
+for i = 1: 519
+    timeStamp(:,i) = datFile(i).data(:,1);
+    motorTorque(:,i) = datFile(i).data(:,2);
+    lagError_cuttingPC(:,i) = datFile(i).data(:,3);
+    actualPosition_cuttingPC(:,i) = datFile(i).data(:,4);
+    actualSpeed_cuttingPC(:,i) = datFile(i).data(:,5);
+    actualPosition_filmPC(:,i) = datFile(i).data(:,6);
+    actualSpeed_filmPC(:,i) = datFile(i).data(:,7);
+    lagError_filmPC(:,i) = datFile(i).data(:,8);
+    pSpintor_vaxSpeed(:,i) = datFile(i).data(:,9);
+end
+% Extract selected feature (Mean for each columns except timeStamp) 
+
+for i = 1:519
+   Mean_torq(:,i) = mean(motorTorque(:,i));
+   Mean_lagE_cutting(:,i)= mean(lagError_cuttingPC(:,i));
+   Mean_postion_cutting(:,i) = mean(actualPosition_cuttingPC(:,i));
+   Mean_speed_cutting(:,i) = mean(actualSpeed_cuttingPC(:,i));
+   Mean_postion_film(:,i) = mean(actualPosition_filmPC(:,i));
+   Mean_speed_film(:,i) = mean(actualSpeed_filmPC(:,i));
+   Mean_lagE_film(:,i) = mean(lagError_filmPC(:,i));
+   Mean_vaxSpeed(:,i) = mean(pSpintor_vaxSpeed(:,i));
+end 
+Mean = [Mean_torq; Mean_lagE_cutting; Mean_postion_cutting; Mean_speed_cutting; Mean_postion_film; Mean_speed_film; Mean_lagE_film; Mean_vaxSpeed;]';
+% Using random indices, split Mean datasets into training, validation, and test sets
+% Chosen percentage of split is Train 70%, Validation 15%, Test 15%
+
+% Feature/Predictors Extraction 
+rng(0);
+NSet = 519;
+
+randomIdx = randperm(NSet); 
+NTrain = round(NSet*0.7); 
+NTest = NSet-NTrain; 
+trainIdx = randomIdx(1:NTrain); 
+testIdx = randomIdx(NTrain+1: NTrain+NTest); 
+
+datFileTrain = Mean(trainIdx,:); 
+datFileValTest = Mean(testIdx,:); 
+datFileVal = datFileValTest((1:78),:);
+datFileTest = datFileValTest((79:end),:);
+
+% Label/Target Extractions (Months)
+months_all = [];
+
+for i = 1:519
+    current_month = datFile(i).nMM;
+    months_all = [months_all; current_month];
+end
+
+TrainMM = months_all(trainIdx)
+ValTestMM = months_all(testIdx);
+ValMM = ValTestMM(1:78,1);
+TestMM = ValTestMM((79:end),1); 
+%%
+datFileTrainVal = [datFileTrain; datFileVal];
+TrainValMM= [TrainMM; ValMM];
+##### SOURCE END #####
+-->
+</div></body></html>

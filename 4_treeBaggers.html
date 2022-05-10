@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2021a"><title>Untitled</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 36px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 36px; font-weight: 700; text-align: left;  }
+.CodeBlock { background-color: #F7F7F7; margin: 10px 0 10px 0;}
+.S1 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 0px none rgb(0, 0, 0); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 44.316px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px;  }
+.S2 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 0px none rgb(0, 0, 0); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 44.316px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px;  }
+.S3 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 44.316px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px;  }
+.S4 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px; padding: 0px 45px 4px 13px; line-height: 44.316px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px;  }
+.S5 { color: rgb(64, 64, 64); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px; overflow-x: hidden; line-height: 44.316px;  }
+.S6 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px; padding: 6px 45px 4px 13px; line-height: 44.316px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px;  }
+.S7 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 54px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 36px; font-weight: 400; text-align: left;  }
+.S8 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 36px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 36px; font-weight: 700; text-align: left;  }
+.S9 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 44.316px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px;  }
+.S10 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px 0px 4px 4px; padding: 6px 45px 4px 13px; line-height: 44.316px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px;  }</style></head><body><div class = rtcContent><h2  class = 'S0'><span>Classification </span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span >rng(0);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >accuracy = ones(1,200);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >prediction = ones(78,200); </span><span style="color: rgb(2, 128, 9);">%10~50</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >c=0; </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >w=0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(2, 128, 9);">% Use validation set to determine the number of trees </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">for </span><span >nTrees = (10:200) </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    B = TreeBagger(nTrees, datFileTrain, TrainMM,</span><span style="color: rgb(170, 4, 249);">'Method'</span><span >, </span><span style="color: rgb(170, 4, 249);">"classification"</span><span >); </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    predictval = predict(B,datFileVal);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    predictval= str2double(predictval); </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    prediction(:,nTrees) = predictval; </span><span style="color: rgb(2, 128, 9);">% only from 10~200 has prediction</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(2, 128, 9);">% let prediction be true if predicted the exact month</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">for </span><span >i = (1:length(predictval))</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >        </span><span style="color: rgb(14, 0, 255);">if </span><span >(predictval(i) == ValMM(i,end))</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >            c = c+1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >        </span><span style="color: rgb(14, 0, 255);">else </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >            w =w +1; </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >        </span><span style="color: rgb(14, 0, 255);">end </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    acc= c/(c+w); </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    accuracy(1, nTrees) = acc; </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    c =0; </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    w =0; </span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'></div></div><div class="inlineWrapper outputs"><div  class = 'S4'><span style="white-space: pre"><span >bestval_class = max(accuracy(10:200))</span></span></div><div  class = 'S5'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px; '>bestval_class = 0.8590</div></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >bestTreeNum_class = find(accuracy == bestval)</span></span></div><div  class = 'S5'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px; '>bestTreeNum_class = 33</div></div></div></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span style="color: rgb(2, 128, 9);">% Use the best tree number determined by above to train best model</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(2, 128, 9);">% Then test the performance of the model using test data </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >rng(0);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >correctT=0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >wrongT=0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >B = TreeBagger(bestTreeNum_class, datFileTrain, TrainMM,</span><span style="color: rgb(170, 4, 249);">'Method'</span><span >, </span><span style="color: rgb(170, 4, 249);">"classification"</span><span >); </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >predictTest = predict(B,datFileTest);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >predictTest= str2double(predictTest); </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(2, 128, 9);">% let prediction be true if predicted the exact month</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">for </span><span >i = (1:length(predictTest))</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">if </span><span >(predictTest(i) == TestMM(i,end))</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >            correctT = correctT+1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">else </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >            wrongT =wrongT +1; </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">end </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper outputs"><div  class = 'S4'><span style="white-space: pre"><span >accuracyTest= correctT/(correctT+wrongT)</span></span></div><div  class = 'S5'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px; '>accuracyTest = 0.7308</div></div></div></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span >rng(0);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >correctTrain=0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >wrongTrain=0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >B_trainClass= TreeBagger(bestTreeNum_class, datFileTrain, TrainMM,</span><span style="color: rgb(170, 4, 249);">'Method'</span><span >, </span><span style="color: rgb(170, 4, 249);">"classification"</span><span >); </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >predictTrainClass = predict(B_trainClass,datFileTrain);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >predictTrainClass= str2double(predictTrainClass); </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(2, 128, 9);">% let prediction be true if predicted the exact month</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">for </span><span >i = (1:length(predictTrainClass))</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">if </span><span >(predictTrainClass(i) == TrainMM(i,end))</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >            correctTrain= correctTrain+1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">else </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >            wrongTrain =wrongTrain +1; </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">end </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper outputs"><div  class = 'S4'><span style="white-space: pre"><span >accuracyTrain= correctTrain/(correctTrain+wrongTrain)</span></span></div><div  class = 'S5'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px; '>accuracyTrain = 1</div></div></div></div><div  class = 'S7'><span>Default Tree number 15 </span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span >rng(0);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >correctD=0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >wrongD=0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >B = TreeBagger(15, datFileTrain, TrainMM,</span><span style="color: rgb(170, 4, 249);">'Method'</span><span >, </span><span style="color: rgb(170, 4, 249);">"classification"</span><span >); </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >predictDefault= predict(B,datFileTest);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >predictDefault= str2double(predictDefault); </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(2, 128, 9);">% let prediction be true if predicted the exact month</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">for </span><span >i = (1:length(predictDefault))</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">if </span><span >(predictDefault(i) == TestMM(i,end))</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >            correctD = correctD+1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">else </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >            wrongD =wrongD +1; </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">end </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper outputs"><div  class = 'S4'><span style="white-space: pre"><span >accuracyDefault= correctD/(correctD+wrongD)</span></span></div><div  class = 'S5'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px; '>accuracyDefault = 0.6795</div></div></div></div><h2  class = 'S8'><span>Regression</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span >rng(0);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >predictionValreg = ones(1,200); </span><span style="color: rgb(2, 128, 9);">%10~50</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >rmseValreg = ones(1,200);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >ErrorValreg =[];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">for </span><span >nTrees = (10:200) </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    B = TreeBagger(nTrees, datFileTrain, TrainMM,</span><span style="color: rgb(170, 4, 249);">'Method'</span><span >, </span><span style="color: rgb(170, 4, 249);">"regression"</span><span >); </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >   </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    pValreg = predict(B,datFileVal);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    ErrorValreg= pValreg -ValMM;</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    rmseValreg(1,nTrees)=sqrt(sum(abs(ErrorValreg).^2)/length(predictValreg));</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    predictionValreg(1,nTrees)=sum(abs(ErrorValreg))/length(predictValreg);</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S4'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div><div  class = 'S5'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px; '>ans = 47</div></div></div></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S9'><span style="white-space: pre"><span >bestval_rmse = min(rmseValreg(1,10:200))</span></span></div><div  class = 'S5'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px; '>bestval_rmse = 0.9229</div></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >bestTreeNum_rmse_reg = find(rmseValreg== min(rmseValreg(10:200)))</span></span></div><div  class = 'S5'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px; '>bestTreeNum_rmse_reg = 47</div></div></div><div class="inlineWrapper"><div  class = 'S10'><span style="white-space: pre"><span style="color: rgb(2, 128, 9);">% Then test the performance of the model using test data </span></span></div></div></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span >rng(0);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >B = TreeBagger(47, datFileTrain, TrainMM,</span><span style="color: rgb(170, 4, 249);">'Method'</span><span >, </span><span style="color: rgb(170, 4, 249);">"regression"</span><span >); </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >pTrainreg= predict(B,datFileTrain);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >ErrorTrainreg = pTrainreg-TrainMM; </span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S4'><span style="white-space: pre"><span >rmseTrainreg =sqrt(sum(abs(ErrorTrainreg).^2)/length(pTrainreg))</span></span></div><div  class = 'S5'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px; '>rmseTrainreg = 1.2853</div></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >predictionTrainreg=mean(abs(ErrorTrainreg))</span></span></div><div  class = 'S5'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px; '>predictionTrainreg = 0.9060</div></div></div></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span >rng(0);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >B = TreeBagger(47, datFileTrain, TrainMM,</span><span style="color: rgb(170, 4, 249);">'Method'</span><span >, </span><span style="color: rgb(170, 4, 249);">"regression"</span><span >); </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >pTestreg= predict(B,datFileTest);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >ErrorTestreg = pTestreg-TestMM; </span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S4'><span style="white-space: pre"><span >rmseTestreg =sqrt(sum(abs(ErrorTestreg).^2)/length(pTestreg))</span></span></div><div  class = 'S5'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px; '>rmseTestreg = 2.0757</div></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >predictionTestreg=mean(abs(ErrorTestreg))</span></span></div><div  class = 'S5'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px; '>predictionTestreg = 1.4501</div></div></div><div class="inlineWrapper outputs"><div  class = 'S6'></div><div  class = 'S5'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px; '>rmseTestDReg = 2.0644</div></div></div></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span >rng(0);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >B_D = TreeBagger(15, datFileTrain, TrainMM,</span><span style="color: rgb(170, 4, 249);">'Method'</span><span >, </span><span style="color: rgb(170, 4, 249);">"regression"</span><span >); </span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >pDReg= predict(B_D,datFileTest);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >ErrorTestDReg = pDReg-TestMM; </span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S4'><span style="white-space: pre"><span >rmseTestDReg =sqrt(sum(abs(ErrorTestDReg).^2)/length(pDReg))</span></span></div><div  class = 'S5'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px; '>rmseTestDReg = 2.1329</div></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span >predictionTestreg=mean(abs(ErrorTestDReg))</span></span></div><div  class = 'S5'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 36px; '>predictionTestreg = 1.4873</div></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Classification 
+
+rng(0);
+accuracy = ones(1,200);
+prediction = ones(78,200); %10~50
+c=0; 
+w=0;
+
+% Use validation set to determine the number of trees 
+for nTrees = (10:200) 
+    B = TreeBagger(nTrees, datFileTrain, TrainMM,'Method', "classification"); 
+    predictval = predict(B,datFileVal);
+    predictval= str2double(predictval); 
+    prediction(:,nTrees) = predictval; % only from 10~200 has prediction
+    % let prediction be true if predicted the exact month
+    for i = (1:length(predictval))
+        if (predictval(i) == ValMM(i,end))
+            c = c+1;
+        else 
+            w =w +1; 
+        end 
+    end
+    acc= c/(c+w); 
+    accuracy(1, nTrees) = acc; 
+    c =0; 
+    w =0; 
+end
+%%
+
+bestval_class = max(accuracy(10:200))
+bestTreeNum_class = find(accuracy == bestval)
+%%
+% Use the best tree number determined by above to train best model
+% Then test the performance of the model using test data 
+rng(0);
+correctT=0;
+wrongT=0;
+B = TreeBagger(bestTreeNum_class, datFileTrain, TrainMM,'Method', "classification"); 
+predictTest = predict(B,datFileTest);
+predictTest= str2double(predictTest); 
+
+% let prediction be true if predicted the exact month
+for i = (1:length(predictTest))
+    if (predictTest(i) == TestMM(i,end))
+            correctT = correctT+1;
+    else 
+            wrongT =wrongT +1; 
+    end 
+end
+
+accuracyTest= correctT/(correctT+wrongT)
+%%
+rng(0);
+correctTrain=0;
+wrongTrain=0;
+B_trainClass= TreeBagger(bestTreeNum_class, datFileTrain, TrainMM,'Method', "classification"); 
+predictTrainClass = predict(B_trainClass,datFileTrain);
+predictTrainClass= str2double(predictTrainClass); 
+
+% let prediction be true if predicted the exact month
+for i = (1:length(predictTrainClass))
+    if (predictTrainClass(i) == TrainMM(i,end))
+            correctTrain= correctTrain+1;
+    else 
+            wrongTrain =wrongTrain +1; 
+    end 
+end
+
+accuracyTrain= correctTrain/(correctTrain+wrongTrain)
+%% 
+% Default Tree number 15 
+
+rng(0);
+correctD=0;
+wrongD=0;
+B = TreeBagger(15, datFileTrain, TrainMM,'Method', "classification"); 
+predictDefault= predict(B,datFileTest);
+predictDefault= str2double(predictDefault); 
+
+% let prediction be true if predicted the exact month
+for i = (1:length(predictDefault))
+    if (predictDefault(i) == TestMM(i,end))
+            correctD = correctD+1;
+    else 
+            wrongD =wrongD +1; 
+    end 
+end
+
+accuracyDefault= correctD/(correctD+wrongD)
+%% Regression
+
+rng(0);
+predictionValreg = ones(1,200); %10~50
+rmseValreg = ones(1,200);
+ErrorValreg =[];
+
+for nTrees = (10:200) 
+    B = TreeBagger(nTrees, datFileTrain, TrainMM,'Method', "regression"); 
+   
+    pValreg = predict(B,datFileVal);
+    ErrorValreg= pValreg -ValMM;
+    
+    rmseValreg(1,nTrees)=sqrt(sum(abs(ErrorValreg).^2)/length(predictValreg));
+    predictionValreg(1,nTrees)=sum(abs(ErrorValreg))/length(predictValreg);
+end
+%%
+bestval_rmse = min(rmseValreg(1,10:200))
+bestTreeNum_rmse_reg = find(rmseValreg== min(rmseValreg(10:200)))
+% Then test the performance of the model using test data 
+%%
+rng(0);
+B = TreeBagger(47, datFileTrain, TrainMM,'Method', "regression"); 
+
+pTrainreg= predict(B,datFileTrain);
+ErrorTrainreg = pTrainreg-TrainMM; 
+rmseTrainreg =sqrt(sum(abs(ErrorTrainreg).^2)/length(pTrainreg))
+predictionTrainreg=mean(abs(ErrorTrainreg))
+%%
+rng(0);
+B = TreeBagger(47, datFileTrain, TrainMM,'Method', "regression"); 
+
+
+pTestreg= predict(B,datFileTest);
+ErrorTestreg = pTestreg-TestMM; 
+rmseTestreg =sqrt(sum(abs(ErrorTestreg).^2)/length(pTestreg))
+predictionTestreg=mean(abs(ErrorTestreg))
+
+%%
+rng(0);
+B_D = TreeBagger(15, datFileTrain, TrainMM,'Method', "regression"); 
+pDReg= predict(B_D,datFileTest);
+ErrorTestDReg = pDReg-TestMM; 
+rmseTestDReg =sqrt(sum(abs(ErrorTestDReg).^2)/length(pDReg))
+predictionTestreg=mean(abs(ErrorTestDReg))
+##### SOURCE END #####
+-->
+</div></body></html>
